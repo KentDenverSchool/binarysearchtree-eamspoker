@@ -10,6 +10,13 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     }
 
     private int size(Node x) { //use Node's recursive size
+        if(x.getRight() == null){
+            return 1 + size(x.getLeft());
+        } else if(x.getLeft() == null){
+            return 1 + size(x.getRight());
+        } else {
+            return 1 + size(x.getLeft()) + size(x.getRight());
+        }
     }
 
     public boolean isEmpty() {
