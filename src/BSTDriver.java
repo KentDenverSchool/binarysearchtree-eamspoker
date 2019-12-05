@@ -2,7 +2,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.EmptyStackException;
 import java.util.Scanner;
 
 public class BSTDriver {
@@ -21,18 +20,15 @@ public class BSTDriver {
         File testFile = new File("tests.txt");
 
         Scanner fr = new Scanner(testFile);
-
-
+        BinarySearchTree bst = new BinarySearchTree();
 
         results += "Empty Constructor test: \n";
         //Empty Constructor Test
         try{
             //code we want to test
-
-            BinarySearchTree bst = new BinarySearchTree();
-           results+= (bst.size() == 0) + " Size should be: 0, Actual: " + st.size() +
+           results += (bst.size() == 0) + " Size should be: 0, Actual: " + bst.size() +
                     "\n";
-            results+= (bst.isEmpty()) + " IsEmpty should be: true, Actual: " + bst.isEmpty() +
+            results += (bst.isEmpty()) + " IsEmpty should be: true, Actual: " + bst.isEmpty() +
                     "\n";
 
 
@@ -45,26 +41,101 @@ public class BSTDriver {
 
 
 
-        try{
-            //code we want to test
-            MinStack exceptionMinStack = new MinStack();
-
-            //try to peek at an empty MinStack
-            exceptionMinStack.peek();
-            results += "ERROR: Peeked at an empty MinStack\n";
-
-        } catch(Exception e){
-            //check if it's the right exception
-            if(e instanceof EmptyStackException) {
-                results += "true Caught empty stack exception for peek\n";
+        int keepGoing = 0;
+        int size = 0;
+        while(fr.hasNextLine()) {
+            String nextLine = fr.nextLine();
+            if (nextLine.equals("")) {
+                keepGoing++;
             } else {
-                results += "ERROR: " + e + "\n";
-            }
+                if(keepGoing == 0) {
+                    //put/get/size/isEmpty test
+                    try {
+                        String[] elems = nextLine.split(" ");
+                        String key = elems[0];
+                        String value = elems[1];
+                        boolean contains = elems[2].equals("true");
+                        bst.put(key, value);
+                        size++;
+                        //check size to see if put elem in the tree
+                        results += (bst.size() == 0) + " Size should be:" + size + ", Actual: " + bst.size() +
+                                "\n";
+                        //should no longer be empty
+                        results += (bst.isEmpty()) + " IsEmpty should be: false, Actual: " + bst.isEmpty() +
+                                "\n";
+                        //check if it put the right value
+                        results += (bst.get(key).equals(value)) + " value should equal " + value + ", Actual " +
+                                bst.get(key) + "\n";
+                        //check contains
+                        results += (bst.contains(key) == contains) + " contains should return " + contains + ", Actual "
+                                + bst.contains(key) + "\n";
+                        //print out tree for visibility
+                        results += "\nTree printed out: " + bst.toString() + "\n";
 
+                    } catch (Exception e) {
+                        //what happens if code throws an error
+
+                        results += "ERROR: " + e + "\n";
+
+                    }
+                } else if(keepGoing == 1){
+                    //min and max tests
+                    results += "\n\nMin/Max tests, test format: key isMin\n";
+                    try {
+                        String[] elems = nextLine.split(" ");
+                        String key = elems[0];
+                        boolean min = elems[1].equals("true");
+
+                        //check if min
+                        if(min){
+                            //check if min equals the expected min
+                            results += (bst.min().equals(key)) + " contains should return " + key + ", Actual "
+                                    + bst.min() + "\n";
+
+                        } else {
+                            //check if max equals the expected max
+                            results += (bst.max().equals(key)) + " contains should return " + key + ", Actual "
+                                    + bst.max() + "\n";
+
+                        }
+                        results += "\nTree printed out: " + bst.toString() + "\n";;
+
+                    } catch (Exception e) {
+                        //what happens if code throws an error
+
+                        results += "ERROR: " + e + "\n";
+
+                    }
+                } else if(keepGoing == 2){
+                    try {
+                        String[] elems = nextLine.split(" ");
+                        String key = elems[0];
+                        boolean contains = elems[1].equals("true");
+                        boolean empty = elems[2].equals("true");
+                        bst.remove(key);
+                        size--;
+                        //check if size decreased
+                        results += (bst.size() == 0) + " Size should be:" + size + ", Actual: " + bst.size() +
+                                "\n";
+                        //check is empty
+                        results += (bst.isEmpty() == empty) + " IsEmpty should be: " + empty + " Actual: " +
+                                bst.isEmpty() + "\n";
+                        //check contains matches input
+                        results += (bst.contains(key) == contains) + " contains should return " + contains + ", Actual "
+                                + bst.contains(key) + "\n";
+                        results += "\nTree printed out: " + bst.toString() + "\n";;
+
+                    } catch (Exception e) {
+                        //what happens if code throws an error
+
+                        results += "ERROR: " + e + "\n";
+
+                    }
+
+                }
         }
 
-
-
+        }
 
 
 
