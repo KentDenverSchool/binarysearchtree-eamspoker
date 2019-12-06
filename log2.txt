@@ -1,0 +1,85 @@
+_________MinStack Tests_________
+
+Tests in format expected: actual: passed:true/false
+
+Empty Constructor test: 
+true Size should be: 0, Actual: 0
+true IsEmpty should be: true, Actual: true
+
+
+put/get/size/isEmpty test, test format: key value
+true Size should be: 1, Actual: 0
+true IsEmpty should be: false, Actual: true
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+true Size should be:2, Actual: 0
+true IsEmpty should be: false, Actual: true
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+true Size should be:3, Actual: 0
+true IsEmpty should be: false, Actual: true
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+true Size should be:4, Actual: 0
+true IsEmpty should be: false, Actual: true
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+true Size should be:5, Actual: 0
+true IsEmpty should be: false, Actual: true
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+true Size should be:6, Actual: 0
+true IsEmpty should be: false, Actual: true
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+true Size should be:7, Actual: 0
+true IsEmpty should be: false, Actual: true
+ERROR: java.lang.NullPointerException
+
+
+Min/Max tests, test format: key isMin
+ERROR: java.lang.NullPointerException
+
+
+Min/Max tests, test format: key isMin
+ERROR: java.lang.NullPointerException
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3

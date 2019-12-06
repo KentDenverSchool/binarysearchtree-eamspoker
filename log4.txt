@@ -1,0 +1,75 @@
+_________MinStack Tests_________
+
+Tests in format expected: actual: passed:true/false
+
+Empty Constructor test: 
+true Size should be: 0, Actual: 0
+true IsEmpty should be: true, Actual: true
+
+
+put/get/size/isEmpty test, test format: key value
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+ERROR: java.lang.NullPointerException
+
+
+put/get/size/isEmpty test, test format: key value
+ERROR: java.lang.NullPointerException
+
+
+Min/Max tests, test format: key isMin
+true min should return 1, Actual 1
+
+Tree printed out: {1=watermelon, 2=coconuts, 3=apples, 4=pineapples, 5=pineapples, 6=grapes, 7=grapes}
+
+
+Min/Max tests, test format: key isMin
+true max should return 7, Actual 7
+
+Tree printed out: {1=watermelon, 2=coconuts, 3=apples, 4=pineapples, 5=pineapples, 6=grapes, 7=grapes}
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3
+
+
+Remove tests, test format: key value isEmpty
+ERROR: java.lang.ArrayIndexOutOfBoundsException: 3

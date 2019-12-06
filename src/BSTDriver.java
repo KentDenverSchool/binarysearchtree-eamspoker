@@ -50,25 +50,26 @@ public class BSTDriver {
             } else {
                 if(keepGoing == 0) {
                     //put/get/size/isEmpty test
+                    results += "\n\nput/get/size/isEmpty test, test format: key value\n";
                     try {
                         String[] elems = nextLine.split(" ");
                         String key = elems[0];
                         String value = elems[1];
-                        boolean contains = elems[2].equals("true");
                         bst.put(key, value);
                         size++;
                         //check size to see if put elem in the tree
-                        results += (bst.size() == 0) + " Size should be:" + size + ", Actual: " + bst.size() +
+                        results += (bst.size() == size) + " Size should be: " + size + ", Actual: " + bst.size() +
                                 "\n";
                         //should no longer be empty
-                        results += (bst.isEmpty()) + " IsEmpty should be: false, Actual: " + bst.isEmpty() +
+                        results += (!bst.isEmpty()) + " IsEmpty should be: false, Actual: " + bst.isEmpty() +
                                 "\n";
                         //check if it put the right value
                         results += (bst.get(key).equals(value)) + " value should equal " + value + ", Actual " +
                                 bst.get(key) + "\n";
                         //check contains
-                        results += (bst.contains(key) == contains) + " contains should return " + contains + ", Actual "
+                        results += (bst.contains(key)) + " contains should return " + true + ", Actual "
                                 + bst.contains(key) + "\n";
+
                         //print out tree for visibility
                         results += "\nTree printed out: " + bst.toString() + "\n";
 
@@ -89,12 +90,12 @@ public class BSTDriver {
                         //check if min
                         if(min){
                             //check if min equals the expected min
-                            results += (bst.min().equals(key)) + " contains should return " + key + ", Actual "
+                            results += (bst.min().equals(key)) + " min should return " + key + ", Actual "
                                     + bst.min() + "\n";
 
                         } else {
                             //check if max equals the expected max
-                            results += (bst.max().equals(key)) + " contains should return " + key + ", Actual "
+                            results += (bst.max().equals(key)) + " max should return " + key + ", Actual "
                                     + bst.max() + "\n";
 
                         }
@@ -107,23 +108,32 @@ public class BSTDriver {
 
                     }
                 } else if(keepGoing == 2){
+                    //remove tests
+                    results += "\n\nRemove tests, test format: key value isEmpty\n";
                     try {
                         String[] elems = nextLine.split(" ");
                         String key = elems[0];
-                        boolean contains = elems[1].equals("true");
+                        String value = elems[1];
                         boolean empty = elems[2].equals("true");
-                        bst.remove(key);
+
+                        Object removed  = bst.remove(key);
+                        //System.out.println(removed);
                         size--;
                         //check if size decreased
-                        results += (bst.size() == 0) + " Size should be:" + size + ", Actual: " + bst.size() +
+                        results += (bst.size() == size) + " Size should be: " + size + ", Actual: " + bst.size() +
                                 "\n";
                         //check is empty
                         results += (bst.isEmpty() == empty) + " IsEmpty should be: " + empty + " Actual: " +
                                 bst.isEmpty() + "\n";
-                        //check contains matches input
-                        results += (bst.contains(key) == contains) + " contains should return " + contains + ", Actual "
-                                + bst.contains(key) + "\n";
-                        results += "\nTree printed out: " + bst.toString() + "\n";;
+                        if(!empty) {
+                            //check if it put the right value
+                            results += (removed.equals(value)) + " value should equal " + value + ", Actual " +
+                                    removed + "\n";
+                            //check contains matches input
+                            results += (!bst.contains(key)) + " contains should return " + false + ", Actual "
+                                    + bst.contains(key) + "\n";
+                            results += "\nTree printed out: " + bst.toString() + "\n";
+                        }
 
                     } catch (Exception e) {
                         //what happens if code throws an error
