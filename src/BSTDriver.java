@@ -99,6 +99,7 @@ public class BSTDriver {
                                     + bst.max() + "\n";
 
                         }
+                        //print tree
                         results += "\nTree printed out: " + bst.toString() + "\n";;
 
                     } catch (Exception e) {
@@ -132,6 +133,7 @@ public class BSTDriver {
                             //check contains matches input
                             results += (!bst.contains(key)) + " contains should return " + false + ", Actual "
                                     + bst.contains(key) + "\n";
+                            //print tree
                             results += "\nTree printed out: " + bst.toString() + "\n";
                         }
 

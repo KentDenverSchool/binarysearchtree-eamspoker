@@ -1,7 +1,0 @@
-_________MinStack Tests_________
-
-Tests in format expected: actual: passed:true/false
-
-Empty Constructor test: 
-true Size should be: 0, Actual: 0
-true IsEmpty should be: true, Actual: true
