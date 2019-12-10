@@ -61,7 +61,9 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     //recursive get
     //returns null if the key does not exist
     private Value get(Node<Key, Value> n, Key key) {
-        if(n.getKey().compareTo(key) > 0 && n.getLeft() == null){
+        if(n == null){
+            return null;
+        } else if(n.getKey().compareTo(key) > 0 && n.getLeft() == null){
             return null;
         } else if(n.getKey().compareTo(key) < 0 && n.getRight() == null){
             return null;
