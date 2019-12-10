@@ -1,12 +1,3 @@
-/*
- * BinarySearchTree.java
- * This class creates a dictionary that stores key value pairs in a binary search tree configuration. Because
- * of the way it is structured, its main methods (put, get, remove, contains) are O(log(n)) instead of O(log(n)), and
- * thus its runtime is faster than a normal dictionary for substantial data sizes.
- * Date: 10/08/19
- * On my honor: EA
- */
-
 public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     public Node<Key, Value> root;
@@ -70,7 +61,9 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     //recursive get
     //returns null if the key does not exist
     private Value get(Node<Key, Value> n, Key key) {
-        if(n.getKey().compareTo(key) > 0 && n.getLeft() == null){
+        if(n == null){
+            return null;
+        } else if(n.getKey().compareTo(key) > 0 && n.getLeft() == null){
             return null;
         } else if(n.getKey().compareTo(key) < 0 && n.getRight() == null){
             return null;

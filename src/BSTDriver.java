@@ -8,7 +8,7 @@ public class BSTDriver {
     public static void main(String[] args)
             throws IOException{
         Scanner s = new Scanner(System.in);
-        String results = "_________MinStack Tests_________"+
+        String results = "_________Binary Search Tree Tests_________"+
                 "\n\nTests in format expected: actual: passed:true/false\n\n";
 
 
@@ -28,9 +28,14 @@ public class BSTDriver {
             //code we want to test
            results += (bst.size() == 0) + " Size should be: 0, Actual: " + bst.size() +
                     "\n";
-            results += (bst.isEmpty()) + " IsEmpty should be: true, Actual: " + bst.isEmpty() +
+           results += (bst.isEmpty()) + " IsEmpty should be: true, Actual: " + bst.isEmpty() +
                     "\n";
 
+            Object o = bst.get(1);
+            results += (o == null) +  " get should be: null, actual" + o + "\n";
+
+            boolean b = bst.contains(1);
+            results += (!b) +  " contains should be: false, actual " + b + "\n";
 
         } catch(Exception e){
             //what happens if code throws an error
@@ -38,6 +43,7 @@ public class BSTDriver {
            results+="ERROR: " + e + "\n";
 
         }
+
 
 
 
@@ -99,7 +105,6 @@ public class BSTDriver {
                                     + bst.max() + "\n";
 
                         }
-                        //print tree
                         results += "\nTree printed out: " + bst.toString() + "\n";;
 
                     } catch (Exception e) {
@@ -133,7 +138,6 @@ public class BSTDriver {
                             //check contains matches input
                             results += (!bst.contains(key)) + " contains should return " + false + ", Actual "
                                     + bst.contains(key) + "\n";
-                            //print tree
                             results += "\nTree printed out: " + bst.toString() + "\n";
                         }
 
